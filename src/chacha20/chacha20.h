@@ -7,14 +7,14 @@ struct chacha_block {
 	word cc_const[4], key[8], counter, nonce[3];
 };
 
-struct chacha20  {
+struct chacha20 {
 	word stream[16];
 	struct chacha_block block;
 	uint32_t index;
 };
 
-typedef chacha20_block chacha_block_t;
-typedef chacha20 chacha20_t, *chacha20_ptr;
+typedef struct chacha20_block chacha_block_t;
+typedef struct chacha20 chacha20_t, *chacha20_ptr;
 
 chacha20_ptr chacha20_create();
 void chacha20_destroy(chacha20_ptr ctx);
